@@ -13,6 +13,16 @@ function Main(props) {
   return (
     <section>
       <p> Serving the {props.adjective} web pages over the Internet</p>
+      <img 
+        src={logo} 
+        height={200} 
+        alt="The React Org" 
+      />
+      <img 
+        src="https://github.com/gagneet.png"
+        height={200}
+        alt="GitHub Profile"
+      />
       <ul style={{textAlign: 'left'}}>
         {props.dishes.map((dish) => (
         <li key={dish.id}>
