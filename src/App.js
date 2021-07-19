@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
+function Header() {
+  return (
+    <header>
+      <h1>First React App</h1>
+    </header>
+  )
+}
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <h2>Main Page that is to be redered</h2>
+      <h3>Footer on the Page</h3>
     </div>
   );
 }
