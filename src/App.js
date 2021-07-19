@@ -14,7 +14,7 @@ function Main(props) {
   return (
     <section>
       <p> Serving the {props.adjective} web pages over the Internet</p>
-      <ul>
+      <ul style={{textAlign: 'left'}}>
         {props.dishes.map((dish) => (
         <li>
           {dish}
