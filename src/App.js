@@ -10,18 +10,18 @@ function Header(props) {
   )
 }
 
-function Main() {
+function Main(props) {
   return (
     <section>
-      <p> Serving the best web pages over the Internet</p>
+      <p> Serving the {props.adjective} web pages over the Internet</p>
     </section>
   )
 }
 
-function Footer() {
+function Footer(props) {
   return (
     <footer>
-      <p>This goes at the bottom of my page!</p>
+      <p>This goes at the bottom of my page for {props.year}!</p>
     </footer>
   )
 }
@@ -31,8 +31,8 @@ function App() {
   return (
     <div className="App">
       <Header name="AdhereLive"/>
-      <Main />
-      <Footer />
+      <Main adjective="amazing"/>
+      <Footer year={new Date().getFullYear()}/>
     </div>
   );
 }
