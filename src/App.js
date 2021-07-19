@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 
 function Header(props) {
-  console.log(props);
   return (
     <header>
       <h1>First {props.name} App</h1>
@@ -16,8 +15,8 @@ function Main(props) {
       <p> Serving the {props.adjective} web pages over the Internet</p>
       <ul style={{textAlign: 'left'}}>
         {props.dishes.map((dish) => (
-        <li>
-          {dish}
+        <li key={dish.id}>
+          {dish.title}
         </li>
         ))}
       </ul>
@@ -36,15 +35,18 @@ function Footer(props) {
 const dishes = [
   "Macaroni",
   "Chicken",
-  "Bhindi"
+  "Bhindi",
+  "Salmon"
 ];
+
+const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}));
 
 
 function App() {
   return (
     <div className="App">
       <Header name="AdhereLive"/>
-      <Main adjective="amazing" dishes={dishes}/>
+      <Main adjective="amazing" dishes={dishObjects}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
