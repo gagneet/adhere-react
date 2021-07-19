@@ -14,6 +14,13 @@ function Main(props) {
   return (
     <section>
       <p> Serving the {props.adjective} web pages over the Internet</p>
+      <ul>
+        {props.dishes.map((dish) => (
+        <li>
+          {dish}
+        </li>
+        ))}
+      </ul>
     </section>
   )
 }
@@ -26,12 +33,18 @@ function Footer(props) {
   )
 }
 
+const dishes = [
+  "Macaroni",
+  "Chicken",
+  "Bhindi"
+];
+
 
 function App() {
   return (
     <div className="App">
       <Header name="AdhereLive"/>
-      <Main adjective="amazing"/>
+      <Main adjective="amazing" dishes={dishes}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
