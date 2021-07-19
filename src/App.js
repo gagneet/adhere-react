@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Header() {
+function Header(props) {
+  console.log(props);
   return (
     <header>
-      <h1>First React App</h1>
+      <h1>First {props.name} App</h1>
     </header>
   )
 }
@@ -29,7 +30,7 @@ function Footer() {
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header name="AdhereLive"/>
       <Main />
       <Footer />
     </div>
