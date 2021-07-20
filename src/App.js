@@ -1,19 +1,26 @@
 import './App.css';
-import React, { useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 
+// https://api.github.com/users/gagneet
 
-function App() {
-  const [checked, toggle] = useReducer(
-    (checked) => !checked,
-    false
-  );
+function App({login}) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${login}`)
+      .then((response) => response.json())
+      .then(setData);
+  }, [])
+
+  if(data) {
+    return <div>{JSON.stringify(data)}</div>
+  }
 
   return (
     <>
-      <input type="checkbox" value={checked} onChange={toggle} />
-      <p>
-        {checked ? "checked" : "not checked"}
-      </p>
+      <div>
+        No User Available!
+      </div>
     </>
   );
 }
