@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 function Header(props) {
   return (
@@ -42,6 +43,18 @@ function Footer(props) {
   )
 }
 
+function SecretComponent() {
+  return (
+    <h1>Super Secret Information for Authorized Users only</h1>
+  )
+}
+
+function RegularComponent() {
+  return (
+    <h1>Information for All Users</h1>
+  )
+}
+
 const dishes = [
   "Macaroni",
   "Chicken",
@@ -52,14 +65,23 @@ const dishes = [
 const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}));
 
 
-function App() {
-  return (
-    <div className="App">
-      <Header name="AdhereLive"/>
-      <Main adjective="amazing" dishes={dishObjects}/>
-      <Footer year={new Date().getFullYear()}/>
-    </div>
-  );
+function App(props) {
+  if(props.authorized) {
+    return (
+      <SecretComponent />
+    )
+  } else {
+      return (
+        <React.Fragment>
+          <RegularComponent />
+          <div className="App">
+            <Header name="AdhereLive"/>
+            <Main adjective="amazing" dishes={dishObjects}/>
+            <Footer year={new Date().getFullYear()}/>
+          </div>
+        </React.Fragment>
+      );
+  }
 }
 
 export default App;

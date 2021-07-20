@@ -6,13 +6,13 @@ import reportWebVitals from './reportWebVitals';
 
 function App2() {
   return (
-    <h1>This is a new Header for me!</h1>
+    <h1>This is the content from App 2!</h1>
   )
 }
 
 ReactDOM.render(
   <React.Fragment>
-    <App />
+    <App authorized={false}/>
     <App2 />
   </React.Fragment>,
   document.getElementById('root')
