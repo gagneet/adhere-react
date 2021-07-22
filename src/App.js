@@ -5,7 +5,8 @@ import {
   Home,
   About,
   Events,
-  Contact
+  Contact,
+  Oops404
 } from './pages.js';
 
 // https://api.github.com/users/gagneet
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Oops404 />} />
       </Routes>
     </div>
   );
